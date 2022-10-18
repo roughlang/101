@@ -1,3 +1,5 @@
 public/wordpress/html/wp-config.php
 public/wordpress/html/wp-content/plugins
 public/wordpress/html/wp-content/languages
+# docker volume
+public/db

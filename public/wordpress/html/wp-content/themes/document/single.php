@@ -3,19 +3,7 @@ include(__DIR__."/inc/meta_header.php");
 include(__DIR__."/inc/nav.php");
 ?>
 
-<div id="doc-banner" class="doc-banner bg-light">
-  <img id="doc-banner-image" class="doc-banner-image bnr-xs" src="/assets/img/document/doc-banner_xs_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-sm" src="/assets/img/document/doc-banner_sm_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-md" src="/assets/img/document/doc-banner_md_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-lg" src="/assets/img/document/doc-banner_lg_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <div class="doc-banner-text">
-    <h3 class="doc-banner-title">Documents</h3>
-    <h3 class="doc-banner-subtitle">Section28</h3>
-    <div class="commerce">
-      Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte,<br> fand er sich in seinem Bett zu einem ungeheuren Ungeziefer verwandelt
-    </div>
-  </div>
-</div>
+
 
 <div class="doc-single container mt100">
   <div class="row">
