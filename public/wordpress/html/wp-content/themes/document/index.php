@@ -43,17 +43,31 @@ include(__DIR__."/inc/nav.php");
 					<?php while(have_posts()): the_post(); ?>
           <li class="item">
             <a href="<?php the_permalink(); ?>">
-              <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('thumbnail', array('class' => 'eyecatch')); ?>
-              <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document/eyecatch-dummy.jpg" class="eyecatch" alt="xxxxx" />
-              <?php endif ; ?>
 
-              <?php the_title(); ?>
-              <div class="description">
-              他人の快楽などというものは正直どうでもよい話である。自分の快楽についてきっちり整理してみようというのがこのテキストでの試みであるが、pleasure, enjoyment, orgasmなどいろいろな言葉で表現できる通り、快楽に
-              <span class="date"><?php the_time('Y.m.d'); ?></span>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 item">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'eyecatch')); ?>
+                  <?php else : ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document/eyecatch-dummy.jpg" class="eyecatch" alt="xxxxx" />
+                  <?php endif ; ?>
+                  <?php the_title(); ?>
+                </div>
+              </div>
             </div>
+            <div class="container">
+              <div class="row justify-content-end">
+                <div class="col-xs-11 col-sm-10 col-lg-11 description">
+                  他人の快楽などというものは正直どうでもよい話である。自分の快楽についてきっちり整理してみようというのがこのテキストでの試みであるが、pleasure, enjoyment, orgasmなどいろいろな言葉で表現できる通り、快楽に
+                  <span class="date"><?php the_time('Y.m.d'); ?></span>
+                </div>
+              </div>
+            </div>
+
+
+
+
             </a>
             <div class="meta-info">
               <?php the_category(); ?>
