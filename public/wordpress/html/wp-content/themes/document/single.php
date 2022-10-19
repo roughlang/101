@@ -32,7 +32,7 @@ include(__DIR__."/inc/nav.php");
   <div class="row">
     <div class="middle-banner col-md-6">
       <a href="#" target="_blank">
-        <img class="middle-banner-image" src="/assets/img/top/middle-banner-image_05.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
+        <img class="middle-banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/img/top/middle-banner-image_05.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
       </a>
     </div>
     <div class="middle-banner col-md-6">

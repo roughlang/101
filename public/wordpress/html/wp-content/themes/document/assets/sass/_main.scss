@@ -493,14 +493,15 @@ body {
 				overflow: hidden;
 				li.item {
 					.eyecatch {
-						width: 40px;
-						height: 40px;
+						width: 30px;
+						height: 30px;
 						object-fit: cover;
 						border-radius: 50%;
 						border: 1px solid #333;
 					}
 					.description {
-						margin-left: 50px;
+						// margin-left: 50px;
+						margin-top: 10px;
 						font-size: 13px;
 						line-height: 170%;
 					}
