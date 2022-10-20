@@ -11,6 +11,7 @@ include(__DIR__."/inc/nav.php");
       <h2 class="blog-title"><?php the_title(); ?></h2>
       <div class="blog-text mt60 mb50">
         <?php the_content(); ?>
+        <br clear="both">
         <span class="date"><?php the_time('Y.m.d (D)'); ?></span>
       </div>
       <div class="blog-footer">

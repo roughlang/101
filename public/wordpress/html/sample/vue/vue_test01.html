@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script type="text/javascript" src="/assets/js/vue/vue.js"></script>
+  
+   <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js"></script> -->
+	<script type="text/javascript" src="/assets/js/vue/axios.min.js"></script>
+  <!-- public/wordpress/html/sample/vue/js/mixin.js -->
+  <!-- // /sample/vue/vue_test01.html -->
+  <script src="/sample/vue/js/mixin.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/assets/js/_main/main-dist.js"></script>
+  <title>Document</title>
+</head>
+<body>
+<h1>vue test</h1>
+<div id="app_a1">
+  <button @click="greeting()" type="button" class="btn btn-primary">mixin</button>
+  <div v-text>{{message}}</div>
+</div>
+
+<script>
+Vue.config.devtools = true;
+
+// const Component = Vue.extend({
+//   mixins: [utility_mixin]
+// })
+
+const app_a1 = new Vue({
+  el: "#app_a1",
+  mixins: [utility_mixin],
+  data: {
+    message2: 'default',
+    a: null,
+    // b: null
+  },
+  methods: {
+    greeting() {
+      // console.log(this.a);//mixin
+      // console.log(this.b);//mixin
+      // console.log(this.message);//mixin
+      this.message = this.goodby();
+    }
+    // greeting() {
+    //   console.log(this.a);//mixin
+    //   console.log(this.b);//mixin
+    // }
+  }
+})
+</script>
+
+</body>
+</html>
