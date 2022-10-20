@@ -46,7 +46,9 @@ include(__DIR__."/inc/nav.php");
 
             <div class="container">
               <div class="row">
+
                 <div class="col-12 item">
+                  
                   <?php if (has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('thumbnail', array('class' => 'eyecatch')); ?>
                   <?php else : ?>
@@ -54,6 +56,7 @@ include(__DIR__."/inc/nav.php");
                   <?php endif ; ?>
                   <?php the_title(); ?>
                 </div>
+
               </div>
             </div>
             <div class="container">
