@@ -22,7 +22,7 @@ include(__DIR__."/inc/nav.php");
     <h3 class="doc-banner-title">101</h3>
     <h3 class="doc-banner-subtitle">Section28</h3>
     <div class="commerce">
-      Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte,<br> fand er sich in seinem Bett zu einem ungeheuren Ungeziefer verwandelt
+    I do not think. I just organize the information.
     </div>
   </div>
 </div>
@@ -60,16 +60,20 @@ include(__DIR__."/inc/nav.php");
               </div>
             </div>
             <div class="container">
-              <div class="row justify-content-end">
+              <div class="row">
                 <div class="col-xs-11 col-sm-10 col-lg-11 description">
-                  他人の快楽などというものは正直どうでもよい話である。自分の快楽についてきっちり整理してみようというのがこのテキストでの試みであるが、pleasure, enjoyment, orgasmなどいろいろな言葉で表現できる通り、快楽に
+                  <?php
+                  if (!empty(get_the_excerpt())) {
+                    $description = get_the_excerpt();
+                  } else {
+                    $description = get_the_content();
+                  }
+                  echo mb_substr(strip_tags($description),0,200);
+                  ?>
                   <span class="date"><?php the_time('Y.m.d'); ?></span>
                 </div>
               </div>
             </div>
-
-
-
 
             </a>
             <div class="meta-info">
