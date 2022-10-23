@@ -51,7 +51,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/assets/img/icon/favicon/icon-32x32.png">
   <link rel="manifest" href="/assets/img/icon/favicon/manifest.json">  <link rel="canonical" href="http://localhost:6266/develop/template/blog/">
   <title>Roughlang - Section28</title>
-  <meta name="description" content="猥褻なことでしか考えない思想ポルノ 現代思想,哲学,現代美術,歴史,社会,分析哲学,大陸哲学,論理実証主義,分析哲学,実存主義,構造主義,ポスト構造主義,現象学についてアプローチ">
+  <meta name="description" content="システムエンジニアのメモと覚書きとアイディア帳。WEBの技術やインフラ構築、PHP/Laravelなどについて書いています。">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/_main.css" media="screen">
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap5/js/bootstrap.min.js"></script>
