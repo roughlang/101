@@ -20,6 +20,16 @@ include(__DIR__."/inc/nav.php");
         </div>
     </div>
     <div class="blog-widget col-sm-12 col-md-4 col-lg-3">
+      <div class="search-widget mb30">
+        <div class="input-group mb-3">
+          <form method="get" action="/">
+            <div class="input-group mb-3">
+              <input name="s" id="s" type="text" class="form-control" placeholder="search words" aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
       <?php if ( is_active_sidebar('main-sidebar') ) : ?>
         <ul class="menu">
           <?php dynamic_sidebar('main-sidebar'); ?>
@@ -60,7 +70,7 @@ include(__DIR__."/inc/nav.php");
           <?php endwhile; ?>
           <?php else: ?>
             <!-- 投稿データが取得できない場合の処理 -->
-          <?php endif; ?> -->
+          <?php endif; ?>
         </ul>
       </a>
     </div>

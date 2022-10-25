@@ -3,90 +3,96 @@ include(__DIR__."/inc/meta_header.php");
 include(__DIR__."/inc/nav.php");
 ?>
 
-<div id="doc-banner" class="doc-banner bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        foo
-      </div>
-      <div class="col-md-6">
-        foo
-      </div>
-    </div>
-  </div>
-  <img id="doc-banner-image" class="doc-banner-image bnr-xs" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_xs_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-sm" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_sm_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-md" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_md_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-lg" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_lg_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <div class="doc-banner-text">
-    <h3 class="doc-banner-title">101</h3>
-    <h3 class="doc-banner-subtitle">Section28</h3>
-    <div class="commerce">
-    I do not think. I just organize the information.
-    </div>
-  </div>
+
+<?php
+  if (isset($_GET['s']) && empty($_GET['s'])) {
+    $word = 'no word';
+  } else {
+    $word = '“'.$_GET['s'] .'” ('.$wp_query->found_posts.')';
+  }
+?>
+<div class="bread-crumb mr50">
+  <ul>
+    <li><a href="/" class="crumblink">101 home</a></li>
+    <li><a href="#" class="crumblink">search</a></li>
+    <li><?php echo $word; ?></li>
+  </ul>
 </div>
 
-<div class="doc-container container mt100">
+
+<div class="doc-single wp-archives container mt100">
   <div class="row">
-    <div class="middle-banner col-md-6">
-      <a href="#" target="_blank">
-        <img class="middle-banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/img/top/middle-banner-image_05.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-      </a>
-    </div>
-    <div class="middle-banner col-md-6">
-      <a href="#" target="_blank">
-        <h3 class="middle-title">Update</h3>
-        <ul class="doc-list mt30">
-
+    <div class="blog-archives col-sm-12 col-md-8 col-lg-9">
+      <h2 class="blog-title mb20">Search</h2>
+      
+      <div class="wp-loop-def">
         <?php if(have_posts()): ?>
-					<?php while(have_posts()): the_post(); ?>
-          <li class="item">
+          <ul class="wp-list">
+          <?php while(have_posts()): the_post(); ?>
+          <li class="wp-item mb20">
+            <?php if (has_post_thumbnail()) : ?>
+              <?php the_post_thumbnail('thumbnail', array('class' => 'eyecatch')); ?>
+            <?php else : ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document/eyecatch-dummy.jpg" class="eyecatch" alt="xxxxx" />
+            <?php endif ; ?>
             <a href="<?php the_permalink(); ?>">
-
-            <div class="container">
-              <div class="row">
-
-                <div class="col-12 item">
-                  
-                  <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'eyecatch')); ?>
-                  <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/document/eyecatch-dummy.jpg" class="eyecatch" alt="xxxxx" />
-                  <?php endif ; ?>
-                  <?php the_title(); ?>
-                </div>
-
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-11 col-sm-10 col-lg-11 description">
-                  <?php
-                  if (!empty(get_the_excerpt())) {
-                    $description = get_the_excerpt();
-                  } else {
-                    $description = get_the_content();
-                  }
-                  echo mb_substr(strip_tags($description),0,200);
-                  ?>
-                  <span class="date"><?php the_time('Y.m.d'); ?></span>
-                </div>
-              </div>
-            </div>
-
+            <?php the_title(); ?>
             </a>
-            <div class="meta-info">
+            <div class="summery">
+              <?php
+                if (!empty(get_the_excerpt())) {
+                  $description = get_the_excerpt();
+                } else {
+                  $description = get_the_content();
+                }
+                echo mb_substr(strip_tags($description),0,200);
+              ?>
+            </div>
+            <div class="meta-info mt10 ml30">
               <?php the_category(); ?>
               <?php the_tags('<ul class="tag"><li>', '</li><li>', '</li></ul>'); ?>
             </div>
           </li>
           <?php endwhile; ?>
-          <?php else: ?>
-            <!-- 投稿データが取得できない場合の処理 -->
-          <?php endif; ?>
+          </ul>
+        <?php else: ?>
+          <div class="alert alert-secondary mt50" role="alert">
+            何もありません。
+          </div>
+        <?php endif; ?>
+
+        <div class="page-nav mt50">
+          <?php the_posts_pagination(
+            array(
+              'mid_size'      => 2, // 現在ページの左右に表示するページ番号の数
+              'prev_next'     => true, // 「前へ」「次へ」のリンクを表示する場合はtrue
+              'prev_text'     => __( '←'), // 「前へ」リンクのテキスト
+              'next_text'     => __( '→'), // 「次へ」リンクのテキスト
+              'type'          => 'list', // 戻り値の指定 (plain/list)
+            )
+          ); ?>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="blog-widget col-sm-12 col-md-4 col-lg-3">
+      <div class="search-widget mb30">
+        <div class="input-group mb-3">
+          <form method="get" action="/">
+            <div class="input-group mb-3">
+              <input name="s" id="s" type="text" class="form-control" placeholder="search words" aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <?php if ( is_active_sidebar('main-sidebar') ) : ?>
+        <ul class="menu">
+          <?php dynamic_sidebar('main-sidebar'); ?>
         </ul>
-      </a>
+			<?php endif; ?>
     </div>
   </div>
 </div>
@@ -99,10 +105,6 @@ include(__DIR__."/inc/nav.php");
       var bv = bgPosition/20;
       var bpb = bgPosition/5;
       var brt = 100 - (bgPosition/4);
-      // console.log(bpb);
-      // console.log(scrollTop);
-      // console.log(brt);
-      // console.log(bv);
       $('.doc-banner-image').css('top',50+bpb+'%');
       $('.doc-banner-image').css('filter','brightness('+brt+'%)');
       $('.doc-banner-image').css('filter','blur('+bv+'px)');
