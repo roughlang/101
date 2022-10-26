@@ -24,7 +24,18 @@ include(__DIR__."/inc/nav.php");
   <div class="row">
     <div class="blog-archives col-sm-12 col-md-8 col-lg-9">
       <h2 class="blog-title mb30">Search</h2>
-      
+
+      <div class="search-result mb30">
+      <?php
+        if (isset($_GET['s']) && empty($_GET['s'])) {
+          echo '検索ワードはありませんでした。';
+        } else {
+          $word = '“'.$_GET['s'] .'” ('.$wp_query->found_posts.')';
+          echo '“'.$_GET['s'] .'を検索して、”'.$wp_query->found_posts.'件見つかりました。';
+        }
+      ?>
+      </div>
+
       <div class="wp-loop-def">
         <?php if(have_posts()): ?>
           <ul class="wp-list">
