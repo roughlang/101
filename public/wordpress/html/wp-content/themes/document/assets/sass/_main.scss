@@ -576,6 +576,18 @@ body {
 					}
 				}
 			}
+			.tw {
+				// background: #ff0;
+				img.tw-icon {
+					width: 30px;
+					height: 30px;
+					margin-top: -6px;
+				}
+				.latest-twitter {
+					font-size: 23px;
+					line-height: 42px;
+				}
+			}
 		}
 	}
 	.doc-single {
@@ -658,6 +670,27 @@ body {
 					padding: 0px 0px 0px 24px;
 					border-left: 2px solid #c1c1c1;
 				}
+				table {
+					font-size: 13px;
+					border-top: 1px solid #a9a9a9;
+					border-left: 1px solid #a9a9a9;
+					thead {
+						th {
+							border-right: 1px solid #a9a9a9;
+							border-bottom: 1px solid #a9a9a9;
+							padding: 3px 10px;
+							font-weight: 400;
+							background: #dcdcdc;
+						}
+					}
+					tbody {
+						td {
+							border-right: 1px solid #a9a9a9;
+							border-bottom: 1px solid #a9a9a9;
+							padding: 3px 10px;
+						}
+					}
+				}
 				.insert-image {
 					width: 100%;
 					height: auto;
@@ -730,8 +763,13 @@ body {
 			// background: #ff0;
 			.search-widget {
 				// background: #f00;
-				input, button {
+				button {
 					border: 1px solid #666;
+				}
+				input {
+					border-top: 1px solid #666;
+					border-bottom: 1px solid #666;
+					border-left: 1px solid #666;
 				}
 				input::placeholder {
 					color: #c1c1c1;
@@ -748,6 +786,7 @@ body {
 						font-weight: 300;
 						color: #333;
 						font-size: 23px;
+						margin-left: -16px;
 					}
 					.tagcloud {
 						margin-bottom: 30px;
@@ -772,6 +811,15 @@ body {
 								color: #000;
 								text-decoration: underline;
 							}
+						}
+					}
+				}
+				li {
+					// background: #ff0;
+					ul {
+						li {
+							list-style: circle;
+							padding-left: 10px;
 						}
 					}
 				}

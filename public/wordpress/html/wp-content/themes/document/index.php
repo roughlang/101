@@ -3,27 +3,10 @@ include(__DIR__."/inc/meta_header.php");
 include(__DIR__."/inc/nav.php");
 ?>
 
-
-<?php
-  if (isset($_GET['s']) && empty($_GET['s'])) {
-    $word = 'no word';
-  } else {
-    $word = '“'.$_GET['s'] .'” ('.$wp_query->found_posts.')';
-  }
-?>
-<div class="bread-crumb mr50">
-  <ul>
-    <li><a href="/" class="crumblink">101 home</a></li>
-    <li><a href="#" class="crumblink">search</a></li>
-    <li><?php echo $word; ?></li>
-  </ul>
-</div>
-
-
 <div class="doc-single wp-archives container mt100">
   <div class="row">
     <div class="blog-archives col-sm-12 col-md-8 col-lg-9">
-      <h2 class="blog-title mb30">Search</h2>
+      <h2 class="blog-title mb30">Blog Index</h2>
       
       <div class="wp-loop-def">
         <?php if(have_posts()): ?>

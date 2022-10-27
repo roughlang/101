@@ -3,7 +3,20 @@ include(__DIR__."/inc/meta_header.php");
 include(__DIR__."/inc/nav.php");
 ?>
 
-
+<?php
+// get cagetory
+$cat = get_the_category();
+$cat_link = get_category_link( $cat[0]->term_id );
+$real_title = get_the_title();
+$title = mb_substr($real_title,0,10).'..,';
+?>
+<div class="bread-crumb mr50">
+  <ul>
+    <li><a href="/" class="crumblink">101 home</a></li>
+    <li><a href="<?php echo $cat_link; ?>" class="crumblink"><?php echo $cat[0]->name; ?></a></li>
+    <li><?php echo $title; ?></li>
+  </ul>
+</div>
 
 <div class="doc-single container mt100">
   <div class="row">

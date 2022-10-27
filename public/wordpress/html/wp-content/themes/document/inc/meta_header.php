@@ -55,8 +55,10 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/_main.css" media="screen">
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vue/vue.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vue/axios.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>

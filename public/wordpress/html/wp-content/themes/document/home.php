@@ -4,16 +4,6 @@ include(__DIR__."/inc/nav.php");
 ?>
 
 <div id="doc-banner" class="doc-banner bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        foo
-      </div>
-      <div class="col-md-6">
-        foo
-      </div>
-    </div>
-  </div>
   <img id="doc-banner-image" class="doc-banner-image bnr-xs" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_xs_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
   <img id="doc-banner-image" class="doc-banner-image bnr-sm" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_sm_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
   <img id="doc-banner-image" class="doc-banner-image bnr-md" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_md_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
@@ -30,10 +20,58 @@ include(__DIR__."/inc/nav.php");
 <div class="doc-container container mt100">
   <div class="row">
     <div class="middle-banner col-md-6">
+      <div id="twitter_rss" class="tw mb20">
+        <?php
+        /**
+         * RSS: https://nitter.net/a141828410/rss
+         * in case of skip
+         * - $data->title[0] = 空の場合
+         * - $data->pubDate[0] = 空の場合
+         * - $data->title[0] = 'image'
+         * - $data->title[0] = 'モリリa1 / @a141828410'
+         * 最初の６ループはmeta情報なので無視してもよい。
+         */
+        $tw_list = [];
+        $tweet = simplexml_load_file('https://nitter.net/a141828410/rss');
+        // var_dump($tweet->channel[0]);
+        foreach($tweet->channel[0] as $data){
+          // var_dump($data->title[0]);
+          if (
+            empty($data->title[0]) ||
+            $data->title[0] == 'モリリa1 / @a141828410' ||
+            $data->title[0] == 'Image'
+          ) {
+            // skip
+          } else {
+            // echo $data->title[0]."<br>\n";
+            // $date = $data->pubDate[0];
+            // echo date('Y年m月d日',$date).'<br>';
+            // echo 'date: '.$data->pubDate[0]."<br>\n";
+            $tw_list[] = [$data->title[0]];
+          }
+        }
+        // var_dump($tw_list[0]);
+        ?>
+        <a href="https://twitter.com/a141828410" target="_blank" rel="noopener noreferrer">
+          <img class="tw-icon" src="/assets/img/twitter-icon.png" alt="twitter">
+        </a>
+        <span class="latest-twitter"><?php echo $tw_list[0][0]; ?></span>
+      </div>
+      <script>
+        const twitter_rss = new Vue({
+          el: "#twitter_rss",
+          data: {
+            sample: 'foobar',
+          },
+        })
+      </script>
+      <div class="tag-cloud mb20">
+        <?php wp_tag_cloud(); ?>
+      </div>
+
       <a href="#" target="_blank">
         <img class="middle-banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/img/top/middle-banner-image_05.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
       </a>
-      <?php wp_tag_cloud(); ?>
     </div>
     <div class="middle-banner col-md-6">
       <a href="#" target="_blank">
