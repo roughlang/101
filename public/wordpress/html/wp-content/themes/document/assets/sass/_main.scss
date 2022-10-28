@@ -510,6 +510,7 @@ body {
 				font-size: 18px;
 				list-style: none;
 				overflow: hidden;
+				padding-left: 0px !important;
 				li.item {
 					.eyecatch {
 						width: 20px;
@@ -778,7 +779,9 @@ body {
 				// display: none;
 			}
 			ul.menu {
-				margin: 0; padding: 0;
+				margin: 0;
+				padding: 0;
+				padding-left: 20px;
 				// background: #ff0;
 				li {
 					list-style: none;
