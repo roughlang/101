@@ -1,6 +1,58 @@
+<?php
+require_once('wp_common.php');
+// echo get_page_type()."<br>\n";
+
+/**
+ * $site_name
+ * $site_title
+ * $url_link
+ * $description
+ * $type
+ */
+$site_name = '101 Roughlang';
+if (get_page_type() == 'home') {
+  $site_title = $site_name;
+  $url_link = 'https://101.roughlang.com/';
+  $description = 'システムエンジニアのメモと覚書きとアイディア帳。WEBの技術やインフラ構築、PHP/Laravelなどについて書いています。';
+  $type = 'website';
+  $og_image = '/assets/img/og/101-roughlang-og.png';
+} else if (get_page_type() == 'single' || get_page_type() == 'page') {
+  $site_title = get_the_title().' | '.$site_name;
+  /* link */
+  $url_link = esc_url(get_permalink());
+  /* description */
+  if (!empty(get_the_excerpt())) {
+    $description = get_the_excerpt();
+  } else {
+    $description = get_the_content();
+  }
+  $description =  mb_substr(strip_tags($description),0,200);
+  $type = 'article';
+  $og_image = '/assets/img/og/101-roughlang-og.png';
+}
+/**
+ * ENV
+ */
+$tmp_env = [];
+$env = [];
+$tmp_env = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/.env');
+$rows = explode("\n", $tmp_env);
+foreach ($rows as $line) {
+  list ($name, $value) = explode('=',$line);
+  $env = array_merge($env, array( $name=>$value) );
+}
+/**
+ * Get page link
+ */
+$link = get_the_permalink();
+// var_dump($link);
+
+/* meta data */
+
+?>
 <!doctype html>
 <html lang="ja">
-<head>
+<head prefix="og:http://ogp.me/ns#">
   <script src="https://www.googleoptimize.com/optimize.js?id=OPT-T2543CR"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,9 +101,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/assets/img/icon/favicon/icon-16x16.png">
   <link rel="icon" type="image/png" sizes="24x24" href="<?php echo get_template_directory_uri(); ?>/assets/img/icon/favicon/icon-24x24.png">
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/assets/img/icon/favicon/icon-32x32.png">
-  <link rel="manifest" href="/assets/img/icon/favicon/manifest.json">  <link rel="canonical" href="http://localhost:6266/develop/template/blog/">
-  <title>Roughlang - Section28</title>
-  <meta name="description" content="システムエンジニアのメモと覚書きとアイディア帳。WEBの技術やインフラ構築、PHP/Laravelなどについて書いています。">
+  <link rel="manifest" href="/assets/img/icon/favicon/manifest.json">
+  <link rel="canonical" href="<?php echo $url_link; ?>">
+
+  <meta property="og:title" content="<?php echo $site_title; ?>">
+  <meta property="og:description" content="<?php echo $description; ?>">
+  <meta property="og:url" content="<?php echo $url_link; ?>">
+  <meta property="og:image" content="<?php echo $og_image; ?>">
+  <meta property="og:type" content="<?php echo $type; ?>">
+  <meta property="og:site_name" content="<?php echo $site_name; ?>">
+
+  <title><?php echo $site_title; ?></title>
+  <meta name="description" content="<?php echo $description; ?>">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/_main.css" media="screen">
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap5/js/bootstrap.min.js"></script>
