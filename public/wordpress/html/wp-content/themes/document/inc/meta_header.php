@@ -110,6 +110,11 @@ $link = get_the_permalink();
   <meta property="og:image" content="<?php echo $og_image; ?>">
   <meta property="og:type" content="<?php echo $type; ?>">
   <meta property="og:site_name" content="<?php echo $site_name; ?>">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="モリリa1@a141828410">
+  <meta name="twitter:title" content="<?php echo $site_title; ?>">
+  <meta name="twitter:description" content="<?php echo $description; ?>">
+  <meta name="twitter:image" content="<?php echo $og_image; ?>">
 
   <title><?php echo $site_title; ?></title>
   <meta name="description" content="<?php echo $description; ?>">
