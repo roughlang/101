@@ -15,7 +15,7 @@ if (get_page_type() == 'home') {
   $url_link = 'https://101.roughlang.com/';
   $description = 'システムエンジニアのメモと覚書きとアイディア帳。WEBの技術やインフラ構築、PHP/Laravelなどについて書いています。';
   $type = 'website';
-  $og_image = '/assets/img/og/101-roughlang-og.png';
+  $og_image = 'https://101.roughlang.com/assets/img/og/101-roughlang-og.png';
 } else if (get_page_type() == 'single' || get_page_type() == 'page') {
   $site_title = get_the_title().' | '.$site_name;
   /* link */
@@ -28,7 +28,7 @@ if (get_page_type() == 'home') {
   }
   $description =  mb_substr(strip_tags($description),0,200);
   $type = 'article';
-  $og_image = '/assets/img/og/101-roughlang-og.png';
+  $og_image = 'https://101.roughlang.com/assets/img/og/101-roughlang-og.png';
 }
 /**
  * ENV
