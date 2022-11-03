@@ -7,10 +7,10 @@ include(__DIR__."/inc/nav.php");
   <img id="doc-banner-image" class="doc-banner-image bnr-xs" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_xs_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
   <img id="doc-banner-image" class="doc-banner-image bnr-sm" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_sm_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
   <img id="doc-banner-image" class="doc-banner-image bnr-md" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_md_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
-  <img id="doc-banner-image" class="doc-banner-image bnr-lg" src="<?php echo get_template_directory_uri(); ?>/assets/img/document/doc-banner_lg_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
+  <img id="doc-banner-image" class="doc-banner-image bnr-lg" src="https://strage-roughlang-a1.s3.ap-northeast-1.amazonaws.com/101_roughlang_com/top/doc-banner_lg_01.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
   <div class="doc-banner-text">
     <h3 class="doc-banner-title">101</h3>
-    <h3 class="doc-banner-subtitle">Section28</h3>
+    <h3 class="doc-banner-subtitle">Roughlang</h3>
     <div class="commerce">
     I do not think. I just organize the information.
     </div>
@@ -30,7 +30,8 @@ include(__DIR__."/inc/nav.php");
           </form>
         </div>
       </div>
-      <?php
+
+      <!-- <?php
       /**
        * RSS: https://nitter.net/a141828410/rss
        * in case of skip
@@ -60,15 +61,16 @@ include(__DIR__."/inc/nav.php");
         }
       }
       // var_dump($tw_list[0]);
-      ?>
-      <?php if ($tw_list[0] !='NULL' || !empty($tw_list[0])) : ?>
+      ?> -->
+
+      <!-- <?php if ($tw_list[0] !='NULL' || !empty($tw_list[0])) : ?>
       <div id="twitter_rss" class="tw mb20">
         <a href="https://twitter.com/a141828410" target="_blank" rel="noopener noreferrer">
           <img class="tw-icon" src="/assets/img/twitter-icon.png" alt="twitter">
         </a>
         <span class="latest-twitter"><?php echo $tw_list[0]; ?></span>
       </div>
-      <?php endif; ?>
+      <?php endif; ?> -->
 
       <script>
         const twitter_rss = new Vue({
@@ -83,14 +85,14 @@ include(__DIR__."/inc/nav.php");
       </div>
 
       <a href="#" target="_blank">
-        <img class="middle-banner-image" src="<?php echo get_template_directory_uri(); ?>/assets/img/top/middle-banner-image_05.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
+        <img class="middle-banner-image" src="https://strage-roughlang-a1.s3.ap-northeast-1.amazonaws.com/101_roughlang_com/top/middle-banner-image_0<?php echo mt_rand('1','5');?>.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
       </a>
     </div>
     <div class="middle-banner col-md-6">
-      <a href="#" target="_blank">
+      <!-- <a href="#" target="_blank"> -->
         <h3 class="middle-title">Update</h3>
-        <ul class="doc-list mt30">
 
+        <ul class="doc-list mt30">
         <?php if(have_posts()): ?>
 					<?php while(have_posts()): the_post(); ?>
           <li class="item">
@@ -138,10 +140,24 @@ include(__DIR__."/inc/nav.php");
             <!-- 投稿データが取得できない場合の処理 -->
           <?php endif; ?>
         </ul>
-      </a>
+
+        <div class="page-nav mt50">
+          <?php the_posts_pagination(
+            array(
+              'mid_size'      => 2, // 現在ページの左右に表示するページ番号の数
+              'prev_next'     => true, // 「前へ」「次へ」のリンクを表示する場合はtrue
+              'prev_text'     => __( '←'), // 「前へ」リンクのテキスト
+              'next_text'     => __( '→'), // 「次へ」リンクのテキスト
+              'type'          => 'list', // 戻り値の指定 (plain/list)
+            )
+          ); ?>
+        </div>
+      <!-- </a> -->
     </div>
   </div>
 </div>
+
+
 
 <script>
   $(function(){

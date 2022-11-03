@@ -22,6 +22,9 @@ $title = mb_substr($real_title,0,10).'..,';
   <div class="row">
     <div class="blog-area col-sm-12 col-md-8 col-lg-9">
       <h2 class="blog-title"><?php the_title(); ?></h2>
+      <!-- Edit -->
+      <?php edit_post_link('Edit','<span>','</span>'); ?>
+
       <div class="blog-text mt60 mb50">
         <?php the_content(); ?>
         <br clear="both">

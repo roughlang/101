@@ -21,7 +21,11 @@ function add_image_class( $classes ) {
 add_filter('get_image_tag_class', 'add_image_class');
 
 
-
+// function.php
+add_filter('edit_post_link', 'my_post_link');
+function my_post_link($output) {
+    return str_replace('<a ', '<a target="_blank" class="btn btn-warning mt10" ', $output);
+}
 
 /**
  * 
