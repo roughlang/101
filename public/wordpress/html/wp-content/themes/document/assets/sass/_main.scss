@@ -270,10 +270,17 @@ body {
 			a:active,a:hover {
 				opacity: 0.8;
 			}
-			.middle-banner-image {
-				width: 100%;
-				vertical-align: bottom;
+			.middle-banner {
+				position: relative;
+				.middle-banner-image {
+					position: absolute;
+					top:0;
+					left: 0;
+					width: 100%;
+					// vertical-align: bottom;
+				}
 			}
+
 			.middle-title {
 				text-align:center;
 				font-weight: 300;
