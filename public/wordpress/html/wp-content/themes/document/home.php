@@ -82,15 +82,12 @@ include(__DIR__."/inc/nav.php");
       </script>
       <div class="tag-cloud mb20 ml10 mr10">
         <?php wp_tag_cloud(); ?>
-      </div>
-      
-      <div class="middle-banner">
+      </div>    
+      <div class="middle-banner-image-area">
         <a href="#" target="_blank">
-          <img class="middle-banner-image" src="https://strage-roughlang-a1.s3.ap-northeast-1.amazonaws.com/101_roughlang_com/top/middle-banner-image_0<?php echo mt_rand('1','5');?>.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
+          <img id="middle_banner_image" class="middle-banner-image" src="https://strage-roughlang-a1.s3.ap-northeast-1.amazonaws.com/101_roughlang_com/top/middle-banner-image_0<?php echo mt_rand('1','5');?>.jpg" alt="78c925a3a4b36984d1bcbbb01457eec6">
         </a>
       </div>
-
-
     </div>
     <div class="middle-banner col-md-6">
       <!-- <a href="#" target="_blank"> -->
@@ -182,6 +179,8 @@ include(__DIR__."/inc/nav.php");
       $('.doc-banner-image').css('filter','blur('+bv+'px)');
       $('.doc-banner-image').css('width',100+bv+'%');
       /** middle banner */
+      // $('#middle_banner_image').css('top','none');
+      $('#middle_banner_image').css('top',0-bgPosition+'px');
 
     });
   });
