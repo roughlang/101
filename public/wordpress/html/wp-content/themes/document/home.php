@@ -31,47 +31,6 @@ include(__DIR__."/inc/nav.php");
         </div>
       </div>
 
-      <!-- <?php
-      /**
-       * RSS: https://nitter.net/a141828410/rss
-       * in case of skip
-       * - $data->title[0] = 空の場合
-       * - $data->pubDate[0] = 空の場合
-       * - $data->title[0] = 'image'
-       * - $data->title[0] = 'モリリa1 / @a141828410'
-       * 最初の６ループはmeta情報なので無視してもよい。
-       */
-      $tw_list = [];
-      $tweet = simplexml_load_file('https://nitter.net/a141828410/rss');
-      // var_dump($tweet->channel[0]);
-      foreach($tweet->channel[0] as $data){
-        // var_dump($data->title[0]);
-        if (
-          empty($data->title[0]) ||
-          $data->title[0] == 'モリリa1 / @a141828410' ||
-          $data->title[0] == 'Image'
-        ) {
-          // skip
-        } else {
-          // echo $data->title[0]."<br>\n";
-          // $date = $data->pubDate[0];
-          // echo date('Y年m月d日',$date).'<br>';
-          // echo 'date: '.$data->pubDate[0]."<br>\n";
-          // $tw_list[] = $data->title[0];
-        }
-      }
-      // var_dump($tw_list[0]);
-      ?> -->
-
-      <!-- <?php if ($tw_list[0] !='NULL' || !empty($tw_list[0])) : ?>
-      <div id="twitter_rss" class="tw mb20">
-        <a href="https://twitter.com/a141828410" target="_blank" rel="noopener noreferrer">
-          <img class="tw-icon" src="/assets/img/twitter-icon.png" alt="twitter">
-        </a>
-        <span class="latest-twitter"><?php echo $tw_list[0]; ?></span>
-      </div>
-      <?php endif; ?> -->
-
       <script>
         const twitter_rss = new Vue({
           el: "#twitter_rss",
