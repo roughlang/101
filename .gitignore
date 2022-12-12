@@ -5,3 +5,4 @@ public/wordpress/html/wp-content/uploads/*
 # docker volume
 public/db
 public/wordpress/html/.env
+public/wordpress/html/wp-content/themes/document/assets/prepros.config
