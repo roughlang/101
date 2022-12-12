@@ -31,14 +31,14 @@ include(__DIR__."/inc/nav.php");
         </div>
       </div>
 
-      <script>
+      <!-- <script>
         const twitter_rss = new Vue({
           el: "#twitter_rss",
           data: {
             sample: 'foobar',
           },
         })
-      </script>
+      </script> -->
       <div class="tag-cloud mb20 ml10 mr10">
         <?php wp_tag_cloud(); ?>
       </div>    
@@ -139,7 +139,7 @@ include(__DIR__."/inc/nav.php");
       $('.doc-banner-image').css('width',100+bv+'%');
       /** middle banner */
       // $('#middle_banner_image').css('top','none');
-      $('#middle_banner_image').css('top',0-bgPosition+'px');
+      // $('#middle_banner_image').css('top',0-bgPosition+'px');
 
     });
   });
